@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            background-color: #0D0D0D;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .unauthorized-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0D0D0D;
+        }
+        .unauthorized-content {
+            background-color: #1E1E1E;
+            color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+        }
+        .unauthorized-title {
+            color: #FF5C5C;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        .unauthorized-text {
+            color: #B3B3B3;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .unauthorized-warning {
+            color: #FF9B42;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .unauthorized-contact {
+            font-size: 16px;
+            color: #B3B3B3;
+        }
+        .discord-link {
+            color: #7289DA;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .discord-link:hover {
+            text-decoration: underline;
+            color: #5865F2;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const allowedReferrer = "linkvertise.com"; // Linkvertise domain to check
+
+            // Check if the user was referred by Linkvertise
+            if (!document.referrer.includes(allowedReferrer)) {
+                // Unauthorized access: Show message and stop further actions
+                document.body.innerHTML = `
+                    <div class="unauthorized-container">
+                        <div class="unauthorized-content">
+                            <h1 class="unauthorized-title">Unauthorized Access</h1>
+                            <p class="unauthorized-text">It seems like you're trying to access this page without the proper permissions.</p>
+                            <p class="unauthorized-warning">⚠️ Please ensure you are using the official link provided by our platform.</p>
+                            <p class="unauthorized-contact">If you believe this is a mistake, please contact support or join our 
+                                <a href="https://discord.gg/8jU5FTbnAF" class="discord-link">Discord Server</a>.
+                            </p>
+                        </div>
+                    </div>
+                `;
+                return; // Stop script execution
+            }
+
+            // If user is coming from Linkvertise, redirect immediately without delay
+            window.location.replace("https://direct-link.net/1262372/check-point-2"); // Replace with your actual redirect URL
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
