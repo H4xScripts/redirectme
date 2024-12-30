@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortlink Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .link-box {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Shortlink Generator</h1>
+    <label for="longUrl">Long URL:</label><br>
+    <input type="text" id="longUrl" placeholder="Enter your long URL" size="50"><br>
+    <label for="shortlinkName">Shortlink Name:</label><br>
+    <input type="text" id="shortlinkName" placeholder="Enter shortlink name"><br>
+    <button onclick="generateShortlink()">Create Shortlink</button>
+
+    <div id="output"></div>
+
+    <script>
+        function generateShortlink() {
+            var longUrl = document.getElementById('longUrl').value;
+            var shortlinkName = document.getElementById('shortlinkName').value;
+
+            if (longUrl && shortlinkName) {
+                // Generate the shortlink URL
+                var shortlinkUrl = window.location.origin + '/' + shortlinkName;
+
+                // Display the shortlink URL
+                document.getElementById('output').innerHTML = `
+                    <p>Your Shortlink:</p>
+                    <div class="link-box" onclick="redirectToLink('${longUrl}')">
+                        ${shortlinkUrl}
+                    </div>
+                `;
+            } else {
+                alert("Please enter both the Long URL and Shortlink Name.");
+            }
+        }
+
+        function redirectToLink(longUrl) {
+            window.location.href = longUrl;
+        }
+    </script>
+
+</body>
+</html>
